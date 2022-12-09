@@ -131,7 +131,7 @@ if (class_exists('WC_Payment_Gateway')) {
 
         // Exchange rate in the default store currency
         public function hive_exchange_rate($default_currency) {
-    		if ( is_checkout() ) {
+    		//if ( is_checkout() ) {
     		    $response = wp_remote_get(HIVE_API_URL."?rate=".strtolower(esc_html($default_currency)));
                 //$price = json_decode($response["body"]);
                 //$response = $price[0]->current_price;
@@ -143,7 +143,7 @@ if (class_exists('WC_Payment_Gateway')) {
                     return trim($response);
 
                 return 0;
-            }
+            //}
         }
 
 
