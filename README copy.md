@@ -1,6 +1,6 @@
-## Hive Woocommerce Plugin
+## StakeCubeCoin Woocommerce Plugin
 
-Accepting Hive on your store has several benefits: instant arrival, no chargebacks, and 0 fees. Follow the steps below to install the plugin in your WooCommerce store and start accepting payments in Hive blockchain.
+Accepting StakeCubeCoin on your store has several benefits: instant arrival, no chargebacks, and 0 fees. Follow the steps below to install the plugin in your WooCommerce store and start accepting payments in DogeCash.
 
 ## Install the plugin
 
