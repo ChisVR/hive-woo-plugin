@@ -293,10 +293,10 @@ function hive_order_total_in_crypto($amount, $rate)
     // Different decimal points based on rate
     if ($rate > 100) {
         $difference = 0.00000002;
-        $total = number_format($amount / $rate, 8, '.', '');
+        $total = number_format($amount / $rate, 3, '.', '');
     } else {
         $difference = 0.00002;
-        $total = number_format($amount / $rate, 5, '.', '');
+        $total = number_format($amount / $rate, 3, '.', '');
     }
 
     // Create unique amount for payment
@@ -318,9 +318,9 @@ function hive_order_total_in_crypto($amount, $rate)
     foreach ($other_amounts as $amount) {
         if ($total == $amount->order_in_crypto) {
             if ($rate > 100) {
-                $total = number_format($total  + $difference, 8, '.', '');
+                $total = number_format($total  + $difference, 3, '.', '');
             } else {
-                $total = number_format($total  + $difference, 5, '.', '');
+                $total = number_format($total  + $difference, 3, '.', '');
             }
         }
     }
