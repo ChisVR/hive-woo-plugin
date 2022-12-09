@@ -7,8 +7,8 @@ if (class_exists('WC_Payment_Gateway')) {
 
         public function __construct(){
             $this->id = 'hive_payment';
-            $this->method_title = __('HIVE cryptocurrency payment','woocommerce-hive');
-            $this->method_description = __('HIVE Payment Gateway allows you to receive payments in HIVE cryptocurrency','woocommerce-hive');
+            $this->method_title = __('Hive cryptocurrency payment','woocommerce-hive');
+            $this->method_description = __('Hive Payment Gateway allows you to receive payments in HIVE cryptocurrency','woocommerce-hive');
             $this->has_fields = true;
             $this->init_form_fields();
             $this->init_settings();
@@ -37,13 +37,13 @@ if (class_exists('WC_Payment_Gateway')) {
                         'enabled' => array(
                             'title'         => __( 'Enable/Disable', 'woocommerce-hive' ),
                             'type'          => 'checkbox',
-                            'label'         => __( 'Enable HIVE Cryptocurrency Payment', 'woocommerce-hive' ),
+                            'label'         => __( 'Enable Hive Cryptocurrency Payment', 'woocommerce-hive' ),
                             'default'       => 'yes'
                         ),
                         'title' => array(
                             'title'         => __( 'Method Title', 'woocommerce-hive' ),
                             'type'          => 'text',
-                            'default'       => __( 'HIVE Cryptocurrency Payment', 'woocommerce-hive' ),
+                            'default'       => __( 'Hive Cryptocurrency Payment', 'woocommerce-hive' ),
                             'desc_tip'   => __( 'The payment method title which you want to appear to the customer in the checkout page.'),
                         ),
                         'description' => array(
@@ -53,9 +53,9 @@ if (class_exists('WC_Payment_Gateway')) {
                             'desc_tip'   => __( 'The payment description message which you want to appear to the customer on the payment page. You can pass a thank you note as well.' ),
                         ),
                         'payment_address' => array(
-                            'title' => __( 'HIVE Wallet Address', 'woocommerce-hive' ),
+                            'title' => __( 'Hive Wallet Address', 'woocommerce-hive' ),
                             'type' => 'text',
-                            'desc_tip'   => __( 'HIVE wallet address where you will receive HIVE from sales.' ),
+                            'desc_tip'   => __( 'Hive wallet address where you will receive HIVE from sales.' ),
                         ),
                         'confirmation_no' => array(
                             'title' => __( 'Minimum Confirmations', 'woocommerce-hive' ),
@@ -81,8 +81,8 @@ if (class_exists('WC_Payment_Gateway')) {
          */
         public function admin_options() {
             ?>
-                <h3><?php _e('HIVE Payment Settings', 'woocommerce-hive' ); ?></h3>
-                <p>HIVE Payment Gateway allows you to receive payments in HIVE cryptocurrency</p>
+                <h3><?php _e('Hive Payment Settings', 'woocommerce-hive' ); ?></h3>
+                <p>Hive Payment Gateway allows you to receive payments in HIVE cryptocurrency</p>
                 <table class="form-table">
                     <?php $this->generate_settings_html();?>
                 </table>
