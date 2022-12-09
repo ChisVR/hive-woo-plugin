@@ -304,7 +304,7 @@ function hive_order_total_in_crypto($amount, $rate)
     $max_time_limit = $wc_hive->max_time_limit * 60;
 
     global $wpdb;
-    $db_table_name = $wpdb->prefix . hive_ORDERS_TABLE_NAME;
+    $db_table_name = $wpdb->prefix . HIVE_ORDERS_TABLE_NAME;
     $safe_period = $max_time_limit * 3;
 
     $other_amounts = $wpdb->get_results("SELECT order_in_crypto FROM $db_table_name WHERE order_status <> 'confirmed' AND order_time > (UNIX_TIMESTAMP(NOW()) - $safe_period)");
