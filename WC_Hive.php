@@ -134,7 +134,7 @@ if (class_exists('WC_Payment_Gateway')) {
     		//if ( is_checkout() ) {
     		    $response = wp_remote_get(HIVE_API_URL."?rate=".strtolower(esc_html($default_currency)));
                 $price = json_decode($response["body"]);
-                $response = $price;
+                $response = $price[0]->current_price;
 
                 if ( is_wp_error($response) )
                     return false;
