@@ -85,13 +85,13 @@ add_action('wp_enqueue_scripts', 'hive_load_cp_scripts', 30);
 function hive_process_order($order_id)
 {
     global $wp;
-    $wc_hive = new WC_Hive;
+    $wc_dogec = new WC_Hive;
 
     $order_id = $wp->query_vars['order-pay'];
     $order = wc_get_order($order_id);
     $order_status = $order->get_status();
 
-    $order_crypto_exchange_rate = $wc_hive->exchange_rate;
+    $order_crypto_exchange_rate = $wc_dogec->exchange_rate;
 
     // Redirect to "cancelled" page when the order's payment is not received
     if ($order_status == 'cancelled') {
@@ -130,7 +130,7 @@ function hive_process_order($order_id)
         // Record the order details for the first time
         if ($count == 0) {
 
-            $payment_address = $wc_hive->payment_address;
+            $payment_address = $wc_dogec->payment_address;
             $order_total = $order->get_total();
             $order_in_crypto = hive_order_total_in_crypto($order_total, $order_crypto_exchange_rate);
             $order_currency = $order->get_currency();
@@ -156,7 +156,7 @@ function hive_verify_payment()
     global $wpdb;
     $db_table_name = $wpdb->prefix . HIVE_ORDERS_TABLE_NAME;
 
-    $wc_hive = new WC_Hive;
+    $wc_dogec = new WC_Hive;
 
     $order_id = intval(sanitize_text_field($_POST['order_id']));
     $order = new WC_Order($order_id);
@@ -166,10 +166,10 @@ function hive_verify_payment()
     $payment_address = $cp_order->payment_address;
     $transaction_id = $cp_order->transaction_id;
     $order_in_crypto = $cp_order->order_in_crypto;
-    $confirmation_no = $wc_hive->confirmation_no;
+    $confirmation_no = $wc_dogec->confirmation_no;
     $order_time = $cp_order->order_time;
-    $max_time_limit = $wc_hive->max_time_limit;
-    $plugin_version = $wc_hive->plugin_version;
+    $max_time_limit = $wc_dogec->max_time_limit;
+    $plugin_version = $wc_dogec->plugin_version;
 
     if (empty($transaction_id)) {
         $transaction_id = "missing";
@@ -266,8 +266,8 @@ function hive_order_remaining_time($order_id)
     global $wpdb;
     $db_table_name = $wpdb->prefix . HIVE_ORDERS_TABLE_NAME;
 
-    $wc_hive = new WC_Hive;
-    $max_time_limit = $wc_hive->max_time_limit * 60; // In seconds
+    $wc_dogec = new WC_Hive;
+    $max_time_limit = $wc_dogec->max_time_limit * 60; // In seconds
 
     $now = new DateTime();
     $order_time = $wpdb->get_var($wpdb->prepare("SELECT order_time FROM $db_table_name WHERE order_id = %d", $order_id));
@@ -300,8 +300,8 @@ function hive_order_total_in_crypto($amount, $rate)
     }
 
     // Create unique amount for payment
-    $wc_hive = new WC_Hive;
-    $max_time_limit = $wc_hive->max_time_limit * 60;
+    $wc_dogec = new WC_Hive;
+    $max_time_limit = $wc_dogec->max_time_limit * 60;
 
     global $wpdb;
     $db_table_name = $wpdb->prefix . HIVE_ORDERS_TABLE_NAME;
@@ -366,7 +366,7 @@ function hive_woocommerce_locate_template($template, $template_name, $template_p
         $template_path = $woocommerce->template_url;
     }
 
-    $plugin_path  = hive_plugin_path() . '/woocommerce/';
+    $plugin_path  = hivec_plugin_path() . '/woocommerce/';
 
     $template = locate_template(
         array(
