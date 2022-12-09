@@ -37,13 +37,13 @@ if (class_exists('WC_Payment_Gateway')) {
                         'enabled' => array(
                             'title'         => __( 'Enable/Disable', 'woocommerce-hive' ),
                             'type'          => 'checkbox',
-                            'label'         => __( 'Enable StakeCubeCoin Cryptocurrency Payment', 'woocommerce-hive' ),
+                            'label'         => __( 'Enable HIVE Cryptocurrency Payment', 'woocommerce-hive' ),
                             'default'       => 'yes'
                         ),
                         'title' => array(
                             'title'         => __( 'Method Title', 'woocommerce-hive' ),
                             'type'          => 'text',
-                            'default'       => __( 'StakeCubeCoin Cryptocurrency Payment', 'woocommerce-hive' ),
+                            'default'       => __( 'HIVE Cryptocurrency Payment', 'woocommerce-hive' ),
                             'desc_tip'   => __( 'The payment method title which you want to appear to the customer in the checkout page.'),
                         ),
                         'description' => array(
@@ -53,9 +53,9 @@ if (class_exists('WC_Payment_Gateway')) {
                             'desc_tip'   => __( 'The payment description message which you want to appear to the customer on the payment page. You can pass a thank you note as well.' ),
                         ),
                         'payment_address' => array(
-                            'title' => __( 'StakeCubeCoin Wallet Address', 'woocommerce-hive' ),
+                            'title' => __( 'HIVE Wallet Address', 'woocommerce-hive' ),
                             'type' => 'text',
-                            'desc_tip'   => __( 'StakeCubeCoin wallet address where you will receive HIVE from sales.' ),
+                            'desc_tip'   => __( 'HIVE wallet address where you will receive HIVE from sales.' ),
                         ),
                         'confirmation_no' => array(
                             'title' => __( 'Minimum Confirmations', 'woocommerce-hive' ),
