@@ -366,7 +366,7 @@ function hive_woocommerce_locate_template($template, $template_name, $template_p
         $template_path = $woocommerce->template_url;
     }
 
-    $plugin_path  = hivec_plugin_path() . '/woocommerce/';
+    $plugin_path  = hive_plugin_path() . '/woocommerce/';
 
     $template = locate_template(
         array(
